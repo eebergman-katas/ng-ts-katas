@@ -4,6 +4,8 @@ Captures by wrapping
 Assert on the spy with something public usualy from a framework
 how many times it was called
 
+-> Wraps the method, collects args, as passes through to actual implementation 
+
 Stub
 Forces a certain return value
   -Guac example we may be testing the method that makes all of the 
