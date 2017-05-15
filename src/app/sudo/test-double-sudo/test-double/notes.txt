@@ -1,0 +1,25 @@
+Spy
+Captures the inputs of a func.
+Captures by wrapping
+Assert on the spy with something public usualy from a framework
+how many times it was called
+
+Stub
+Forces a certain return value
+  -Guac example we may be testing the method that makes all of the 
+    ingredients for guac but in the test all we care is that guac is returned 
+    to us. Stub only returns the guac
+
+Helps force logic down a certain path
+
+Mock 
+Has a return like a Stub
+has assertions like a spy
+
+Fake Obj
+Lightweight implmentation of a real thing
+No assertions nor control points
+Make it act like the real obj but without dependencies 
+  nor crossing a boundary like the internet or writting to a file
+
+Speeds up running a test

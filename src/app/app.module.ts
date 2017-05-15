@@ -5,10 +5,14 @@ import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TestDoubleComponent } from 'app/sudo/test-double-sudo/test-double/test-double.component';
+import { BlackjackComponent } from 'app/blackjack/blackjack.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TestDoubleComponent,
+    BlackjackComponent,
   ],
   imports: [
     BrowserModule,
