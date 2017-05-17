@@ -1,6 +1,6 @@
 import { FaceValue } from 'app/blackjack/shared/face-value.enum';
 
-fdescribe('FaceValue Spec', () => {
+describe('FaceValue Spec', () => {
 
     describe('#pointValue', () => {
         let testPointValue: number;
