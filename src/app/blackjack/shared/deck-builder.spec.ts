@@ -9,7 +9,7 @@ describe('Deck Builder Spec', () => {
     it('should generate a card', () => {
       const testDeckBuilder = new DeckBuilder();
       const testCard = testDeckBuilder.cardGenerator();
-      expect(testCard).toEqual( { suit: Suit.Club, faceValue: FaceValue.Ace } );
+      expect(testCard).toEqual({ suit: Suit.Club, faceValue: FaceValue.Ace });
     });
   });
 
