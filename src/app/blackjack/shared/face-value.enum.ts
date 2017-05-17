@@ -21,10 +21,12 @@ export namespace FaceValue {
         switch (value) {
             case FaceValue.Ace:
                 return 11;
-            case FaceValue.Two:
-                return 2;
+            case FaceValue.Jack:
+            case FaceValue.Queen:
+            case FaceValue.King:
+                return 10;
             default:
-                return 0;
+                return value.valueOf();
         }
     }
 }
