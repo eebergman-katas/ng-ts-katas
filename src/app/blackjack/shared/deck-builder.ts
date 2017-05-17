@@ -9,9 +9,11 @@ export class DeckBuilder {
     ) { }
 
     public cardGenerator(): void {
-        const firstCard = { suit: Suit.Club, faceValue: FaceValue.Ace };
-        const secondCard = { suit: Suit.Club, faceValue: FaceValue.Two };
-        this.deck.cards.push(firstCard);
-        this.deck.cards.push(secondCard);
+        for (const genSuit in Suit) {
+            if (genSuit.length > 2) {
+                const genCard: Card = { suit: Suit.getSuit(genSuit), faceValue: FaceValue.Ace };
+                this.deck.cards.push(genCard);
+            }
+        }
     }
 }

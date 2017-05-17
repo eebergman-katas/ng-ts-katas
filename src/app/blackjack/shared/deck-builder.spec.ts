@@ -4,27 +4,24 @@ import { FaceValue } from 'app/blackjack/shared/face-value.enum';
 import { Suit } from 'app/blackjack/shared/suit.enum';
 import { Deck } from 'app/blackjack/shared/deck';
 
-fdescribe('Deck Builder Spec', () => {
+describe('Deck Builder Spec', () => {
 
   describe('#cardGenerator', () => {
-    let testDeck: Deck;
+    let deck: Deck;
     let testDeckBuilder: DeckBuilder;
-    let testCard: Card[];
+    let testDeck: Card[];
 
     beforeEach(() => {
-      testDeck = new Deck();
-      testDeckBuilder = new DeckBuilder(testDeck);
+      deck = new Deck();
+      testDeckBuilder = new DeckBuilder(deck);
       testDeckBuilder.cardGenerator();
-      testCard = testDeckBuilder.deck.cards;
+      testDeck = testDeckBuilder.deck.cards;
     });
 
-    it('should generate the first card(Ace of Clubs)', () => {
-      expect(testCard[0]).toEqual({ suit: Suit.Club, faceValue: FaceValue.Ace });
+    it('should generate a deck ', () => {
+      expect(testDeck[0]).toEqual({ suit: Suit.Club, faceValue: FaceValue.Ace });
     });
 
-    it('should generate the second card(2 of Clubs)', () => {
-      expect(testCard[1]).toEqual({ suit: Suit.Club, faceValue: FaceValue.Two });
-    });
   });
 
 });
