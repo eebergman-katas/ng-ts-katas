@@ -7,18 +7,23 @@ import { Deck } from 'app/blackjack/shared/deck';
 fdescribe('Deck Builder Spec', () => {
 
   describe('#cardGenerator', () => {
-    it('should generate the first card(Ace of Clubs)', () => {
-      const testDeckBuilder = new DeckBuilder(new Deck);
+    let testDeck: Deck;
+    let testDeckBuilder: DeckBuilder;
+    let testCard: Card[];
+
+    beforeEach(() => {
+      testDeck = new Deck();
+      testDeckBuilder = new DeckBuilder(testDeck);
       testDeckBuilder.cardGenerator();
-      const testCard = testDeckBuilder.deck.cards[0];
-      expect(testCard).toEqual({ suit: Suit.Club, faceValue: FaceValue.Ace });
+      testCard = testDeckBuilder.deck.cards;
+    });
+
+    it('should generate the first card(Ace of Clubs)', () => {
+      expect(testCard[0]).toEqual({ suit: Suit.Club, faceValue: FaceValue.Ace });
     });
 
     it('should generate the second card(2 of Clubs)', () => {
-      const testDeckBuilder = new DeckBuilder(new Deck);
-      testDeckBuilder.cardGenerator();
-      const testCard = testDeckBuilder.deck.cards[1];
-      expect(testCard).toEqual({ suit: Suit.Club, faceValue: FaceValue.Two });
+      expect(testCard[1]).toEqual({ suit: Suit.Club, faceValue: FaceValue.Two });
     });
   });
 
