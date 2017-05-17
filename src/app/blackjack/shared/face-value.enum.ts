@@ -1,5 +1,5 @@
 export enum FaceValue {
-    Ace,
+    Ace = 1,
     Two,
     Three,
     Four,
@@ -12,25 +12,4 @@ export enum FaceValue {
     Jack,
     Queen,
     King
-}
-
-
-
-
-
-
-
-export namespace FaceValue {
-    export function getPointValue(value: FaceValue): number {
-        switch (value) {
-            case FaceValue.Ace:
-                return 11;
-            case FaceValue.Jack:
-            case FaceValue.Queen:
-            case FaceValue.King:
-                return 10;
-            default:
-                return value.valueOf();
-        }
-    }
 }

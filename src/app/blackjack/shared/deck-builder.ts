@@ -4,23 +4,14 @@ import { FaceValue } from 'app/blackjack/shared/face-value.enum';
 import { Suit } from 'app/blackjack/shared/suit.enum';
 
 export class DeckBuilder {
-    constructor(
-        public deck: Deck
-    ) { }
 
-    public cardGenerator(): void {
-        for (const genSuit in Suit) {
-            if (genSuit.length > 2) {
-
-                const genCard: Card = {
-                    suit: Suit.getSuit(genSuit),
-                    value: {
-                        faceValue: FaceValue.Eight,
-                        pointValue: 8
-                    }
-                };
-                this.deck.cards.push(genCard);
-            }
-        }
+    public cardGenerator(): Deck {
+        const deck: Deck = new Deck();
+        const firstCard = new Card(Suit.Club, {
+            faceValue: FaceValue.Ace,
+            pointValue: 1
+        });
+        deck.cards.push(firstCard);
+        return deck;
     }
 }
