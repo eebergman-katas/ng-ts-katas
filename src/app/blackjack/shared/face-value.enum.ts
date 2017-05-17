@@ -14,9 +14,14 @@ export enum FaceValue {
     King
 }
 
+
+
+
+
+
+
 export namespace FaceValue {
     export function getPointValue(value: FaceValue): number {
-
         switch (value) {
             case FaceValue.Ace:
                 return 11;
