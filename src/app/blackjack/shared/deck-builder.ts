@@ -10,28 +10,63 @@ export class DeckBuilder {
 
         for (const genSuit in Suit) {
             if (genSuit.length > 2) {
-                const firstCard = new Card(suitLookup(genSuit), {
-                    faceValue: FaceValue.Ace,
-                    pointValue: 1
-                });
-                deck.cards.push(firstCard);
+                for (const genValue in FaceValue) {
+                    if (genValue.length > 2) {
+                        const genCard = new Card(this.suitLookup(genSuit), {
+                            faceValue: this.faceValueLookup(genValue),
+                            pointValue: 1
+                        });
+                        deck.cards.push(genCard);
+                    }
+                }
             }
         }
         return deck;
     }
-}
-// class method or function
-// export namespace method on the enum
-function suitLookup(suitLookup: string): Suit {
-    switch (suitLookup.toLowerCase()) {
-        case 'club':
-            return Suit.Club;
-        case 'diamond':
-            return Suit.Diamond;
-        case 'heart':
-            return Suit.Heart;
-        default:
-            return Suit.Spade;
-    }
-}
 
+    // export namespace function on the enum?
+    private suitLookup(suitLookup: string): Suit {
+        switch (suitLookup) {
+            case 'Club':
+                return Suit.Club;
+            case 'Diamond':
+                return Suit.Diamond;
+            case 'Heart':
+                return Suit.Heart;
+            default:
+                return Suit.Spade;
+        }
+    }
+
+    private faceValueLookup(faceValueLookup: string): FaceValue {
+        switch (faceValueLookup) {
+            case 'Ace':
+                return FaceValue.Ace;
+            case 'Two':
+                return FaceValue.Two;
+            case 'Three':
+                return FaceValue.Three;
+            case 'Four':
+                return FaceValue.Four;
+            case 'Five':
+                return FaceValue.Five;
+            case 'Six':
+                return FaceValue.Six;
+            case 'Seven':
+                return FaceValue.Seven;
+            case 'Eight':
+                return FaceValue.Eight;
+            case 'Nine':
+                return FaceValue.Nine;
+            case 'Ten':
+                return FaceValue.Ten;
+            case 'Jack':
+                return FaceValue.Jack;
+            case 'Queen':
+                return FaceValue.Queen;
+            default:
+                return FaceValue.King;
+        }
+    }
+
+}
