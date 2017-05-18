@@ -10,11 +10,12 @@ export class DeckBuilder {
 
         for (const genSuit in Suit) {
             if (genSuit.length > 2) {
+
                 for (const genValue in FaceValue) {
                     if (genValue.length > 2) {
-                        const genCard = new Card(this.suitLookup(genSuit), {
-                            faceValue: this.faceValueLookup(genValue),
-                            pointValue: 1
+                        const genCard = new Card(this.suitSearch(genSuit), {
+                            faceValue: this.faceValueSearch(genValue),
+                            pointValue: this.pointValueSearch(this.faceValueSearch(genValue))
                         });
                         deck.cards.push(genCard);
                     }
@@ -25,8 +26,8 @@ export class DeckBuilder {
     }
 
     // export namespace function on the enum?
-    private suitLookup(suitLookup: string): Suit {
-        switch (suitLookup) {
+    private suitSearch(genSuit: string): Suit {
+        switch (genSuit) {
             case 'Club':
                 return Suit.Club;
             case 'Diamond':
@@ -38,8 +39,8 @@ export class DeckBuilder {
         }
     }
 
-    private faceValueLookup(faceValueLookup: string): FaceValue {
-        switch (faceValueLookup) {
+    private faceValueSearch(genValue: string): FaceValue {
+        switch (genValue) {
             case 'Ace':
                 return FaceValue.Ace;
             case 'Two':
@@ -66,6 +67,19 @@ export class DeckBuilder {
                 return FaceValue.Queen;
             default:
                 return FaceValue.King;
+        }
+    }
+
+    private pointValueSearch(genValue: FaceValue): number {
+        switch (genValue) {
+            case FaceValue.Ace:
+                return 11;
+            case FaceValue.Jack:
+            case FaceValue.Queen:
+            case FaceValue.King:
+                return 10;
+            default:
+            return genValue;
         }
     }
 
